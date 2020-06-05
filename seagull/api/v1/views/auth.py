@@ -4,12 +4,14 @@
 # file: auth.py
 # IDE: PyCharm
 
-import bcrypt
-from flask import request, current_app, jsonify
+import bcrypt, datetime
+from flask import request, current_app, jsonify, g
 from seagull.api.v1 import api_v1
 from seagull.utils.common_utils import api_abort, gen_token
 from seagull.models import User
 from seagull.settings import Operations
+from seagull.decorators import auth_required
+from seagull.extensions import redis_conn
 
 
 # 登录视图
@@ -44,3 +46,12 @@ def login():
     except Exception as e:
         current_app.logger.error("{}".format(e))
         return api_abort(401, "登录失败")
+
+
+@api_v1.route('/user/logout', methods=['POST'])
+@auth_required
+def logout():
+    # r = redis.Redis(connection_pool=POOL)
+    # 用户注销，将token加入到黑名单中
+    redis_conn.zadd("token_blacklist", {g.token: int(datetime.datetime.now().timestamp())})
+    return '', 204

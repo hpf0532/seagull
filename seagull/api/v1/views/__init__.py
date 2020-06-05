@@ -4,4 +4,4 @@
 # file: __init__.py.py
 # IDE: PyCharm
 
-from . import auth, test, post
+from . import auth, test, post, user

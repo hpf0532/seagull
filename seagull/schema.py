@@ -25,7 +25,7 @@ class PostSchema(ma.Schema):
     body = fields.Str(validate=lambda p: len(p) > 0, required=True, error_messages=dict(
         required="正文必填项", validator_failed="内容不能为空", invalid="请输入字符串"
     ))
-    category_id = fields.Int(required=True, validate=validate_category_id, load_only=True)
+    category_id = fields.Int(required=True, validate=validate_category_id)
     create_time = fields.Function(lambda obj: int(obj.create_time.timestamp()))
     update_time = fields.Function(lambda obj: int(obj.update_time.timestamp()))
     category = fields.Function(lambda obj: obj.category.name, dump_only=True)
