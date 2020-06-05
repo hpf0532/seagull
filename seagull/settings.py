@@ -66,12 +66,12 @@ class DevelopmentConfig(BaseConfig):
 
 class TestingConfig(BaseConfig):
     TESTING = True
-    SQLALCHEMY_DATABASE_URI = f'mysql+pymysql://{MySQLConfig.MYSQL_USERNAME}:{MySQLConfig.MYSQL_PASSWORD}' \
+    SQLALCHEMY_DATABASE_URI = f'mysql+mysqlconnector://{MySQLConfig.MYSQL_USERNAME}:{MySQLConfig.MYSQL_PASSWORD}' \
         f'@{MySQLConfig.MYSQL_HOST}/{MySQLConfig.MYSQL_DATABASE}?charset={MySQLConfig.MYSQL_CHARSET}'
 
 
 class ProductionConfig(BaseConfig):
-    SQLALCHEMY_DATABASE_URI = f'mysql+pymysql://{MySQLConfig.MYSQL_USERNAME}:{MySQLConfig.MYSQL_PASSWORD}' \
+    SQLALCHEMY_DATABASE_URI = f'mysql+mysqlconnector://{MySQLConfig.MYSQL_USERNAME}:{MySQLConfig.MYSQL_PASSWORD}' \
         f'@{MySQLConfig.MYSQL_HOST}/{MySQLConfig.MYSQL_DATABASE}?charset={MySQLConfig.MYSQL_CHARSET}'
 
 
