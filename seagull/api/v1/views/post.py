@@ -72,7 +72,7 @@ class CategorysAPI(MethodView):
 
 
 class PostAPI(MethodView):
-    # decorators = [auth_required]
+    decorators = [auth_required]
 
     def get(self, post_id):
         """
@@ -115,7 +115,7 @@ class PostAPI(MethodView):
 
 
 class PostsAPI(MethodView):
-    # decorators = [auth_required]
+    decorators = [auth_required]
 
     def get(self):
         """
