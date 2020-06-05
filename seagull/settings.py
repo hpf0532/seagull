@@ -7,6 +7,9 @@
 import os
 import redis
 import secrets
+from dotenv import load_dotenv, find_dotenv
+
+load_dotenv(find_dotenv())
 
 basedir = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
 
