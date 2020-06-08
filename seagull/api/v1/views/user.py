@@ -12,6 +12,7 @@ from seagull.decorators import auth_required
 @api_v1.route('/user/info', methods=['GET'])
 @auth_required
 def userinfo():
+    print(212)
     return jsonify({
         "id": g.user.id,
         "name": g.user.username,
