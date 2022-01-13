@@ -16,7 +16,7 @@ MarkupSafe==1.1.1
 marshmallow==3.6.1
 marshmallow-sqlalchemy==0.23.1
 mysql-connector==2.2.9
-Pillow==7.1.2
+Pillow==9.0.0
 pycparser==2.20
 PyJWT==1.7.1
 PyMySQL==0.9.3
